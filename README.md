@@ -111,3 +111,7 @@ Dataset
 The dataset used in this project was obtained from Kaggle.
 Due to its size, the dataset is provided as a compressed ZIP file. Extract ecommerce_data.zip before running the data cleaning and analysis scripts.
 Source: Kaggle 
+
+## Dashboard Preview
+
+![E-commerce Dashboard](dashboard.png)
