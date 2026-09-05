@@ -106,3 +106,8 @@ Ecommerce/
 - Add date-range filtering to the dashboard
 - Add an admin login and product management (CRUD)
 - Deploy the app online with a cloud-hosted database
+
+Dataset
+The dataset used in this project was obtained from Kaggle.
+Due to its size, the dataset is provided as a compressed ZIP file. Extract ecommerce_data.zip before running the data cleaning and analysis scripts.
+Source: Kaggle 
