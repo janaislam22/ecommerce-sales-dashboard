@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Sales Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">SD</span>
+      <span class="brand-name">Sales Dashboard</span>
+    </div>
+    <nav class="nav">
+      <a href="#overview" class="nav-item active" data-nav>
+        <span class="nav-icon">◈</span> Overview
+      </a>
+      <a href="#by-state" class="nav-item" data-nav>
+        <span class="nav-icon">◇</span> Sales by State
+      </a>
+      <a href="#by-category" class="nav-item" data-nav>
+        <span class="nav-icon">◆</span> Categories
+      </a>
+      <a href="#top-products" class="nav-item" data-nav>
+        <span class="nav-icon">◉</span> Top Products
+      </a>
+    </nav>
+    <div class="sidebar-foot">
+      <p class="sidebar-note">Data: Amazon Sale Report<br>Mar–Jun 2022 · India</p>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div>
+        <h1>Overview</h1>
+        <p class="subtitle">Sales performance at a glance</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="search">
+          <input type="text" id="productSearch" placeholder="Search top products by SKU or category…">
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <section id="overview" class="kpi-row">
+      <div class="kpi-card">
+        <span class="kpi-label">Total Revenue</span>
+        <span class="kpi-value" id="kpiRevenue">—</span>
+        <span class="kpi-foot">All cleaned orders, INR</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Total Orders</span>
+        <span class="kpi-value" id="kpiOrders">—</span>
+        <span class="kpi-foot">Unique order IDs</span>
+      </div>
+      <div class="kpi-card accent">
+        <span class="kpi-label">Average Order Value</span>
+        <span class="kpi-value" id="kpiAov">—</span>
+        <span class="kpi-foot">Revenue ÷ orders</span>
+      </div>
+    </section>
+
+    <section class="chart-row">
+      <div class="panel" id="by-state">
+        <div class="panel-head">
+          <h2>Revenue by State</h2>
+          <span class="panel-note">Top 10 states</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="stateChart"></canvas>
+        </div>
+      </div>
+      <div class="panel" id="by-category">
+        <div class="panel-head">
+          <h2>Revenue by Category</h2>
+          <span class="panel-note">Share of total</span>
+        </div>
+        <div class="chart-wrap chart-wrap-donut">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel table-panel" id="top-products">
+      <div class="panel-head">
+        <h2>Top 10 Products</h2>
+        <span class="panel-note" id="productCount"></span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Revenue</th>
+          </tr>
+        </thead>
+        <tbody id="productsBody">
+          <tr><td colspan="3" class="loading-row">Loading…</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
